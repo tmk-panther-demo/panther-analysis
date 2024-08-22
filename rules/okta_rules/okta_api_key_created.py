@@ -5,6 +5,7 @@ def rule(event):
     return (
         event.get("eventType", None) == "system.api_token.create"
         and deep_get(event, "outcome", "result") == "SUCCESS"
+        and deep_get(event, "debugContext", "debugData", "networkConnection") == "ANYWHERE"
     )
 
 
